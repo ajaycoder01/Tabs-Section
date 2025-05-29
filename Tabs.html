@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabs section</title>
+
+    <style>
+      /* //------------------- */
+
+      .section{
+        display: flex;
+        width: 70%;
+        height: 500px;
+        margin: auto;
+        gap: 20px;
+      }
+      
+      .box2{
+        width: 50%;
+        height: 100%;
+        background-color: antiquewhite;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      .contents{
+        padding: 10px 30px;
+      }
+      .tab{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        
+      }
+      .tab button{
+        font-size:20px;
+        border: none;
+        padding: 15px 0 ;
+        background-color: #b6c9f0;
+        cursor: pointer;
+        transition: all 0.3s linear;
+      }
+      .tab button:hover{
+        background-color: antiquewhite;
+      }
+      .tab button:focus{
+        background-color: antiquewhite;
+      }
+      .tab button:nth-child(1){
+        border-top-left-radius: 10px;
+      }
+      .tab button:nth-child(3){
+        border-top-right-radius: 10px;
+      }
+      .para{
+        display: none;
+      }
+      .para.live{
+        display: block;
+      }
+      .tab .button.live{
+       background-color: antiquewhite;
+      }
+     .tab .button:hover:not(.live) {
+        background: #e93b81;
+        color: white;
+      }
+
+    </style>
+  </head>
+  <body>
+
+
+    
+
+
+    <div class="section">
+       
+        <div class="box2">
+            <div class="tab">
+                <button class="button live" data-id="step1">Tab1</button>
+                <button class="button" data-id="step2">Tab2</button>
+                <button class="button" data-id="step3">Tab3</button>
+            </div>
+            <div class="contents">
+                <div class="para live" id="step1">
+                    <h1>step1</h1>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat,
+                        asperiores magnam? In expedita laudantium magnam ratione alias
+                        minus nemo incidunt, dignissimos architecto placeat corporis
+                        molestiae labore vitae ullam laborum ut culpa eaque officiis,
+                        blanditiis sunt fugit ex? Neque quod mollitia delectus ipsa?
+                        Dolore veritatis, tenetur laudantium possimus unde debitis enim
+                        est illum, ea distinctio quod itaque quaerat ex sint eum optio in
+                        saepe labore sunt odit? Dolore, iusto! Ducimus sint laudantium
+                        consectetur. Velit facere culpa excepturi ad, quae distinctio iure
+                        incidunt. Odio alias laboriosam unde quo repudiandae corporis
+                        laborum quaerat asperiores minima quis in nam maxime recusandae
+                        iure, provident a?
+                      </p>
+                </div>
+                <div class="para" id="step2">
+                    <h1>step2</h1>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat,
+                        asperiores magnam? In expedita laudantium magnam ratione alias
+                        minus nemo incidunt, dignissimos architecto placeat corporis
+                        molestiae labore vitae ullam laborum ut culpa eaque officiis,
+                        blanditiis sunt fugit ex? Neque quod mollitia delectus ipsa?
+                        Dolore veritatis, tenetur laudantium possimus unde debitis enim
+                        est illum, ea distinctio quod itaque quaerat ex sint eum optio in
+                        saepe labore sunt odit? Dolore, iusto! Ducimus sint laudantium
+                        consectetur. Velit facere culpa excepturi ad, quae distinctio iure
+                        incidunt. Odio alias laboriosam unde quo repudiandae corporis
+                        laborum quaerat asperiores minima quis in nam maxime recusandae
+                        iure, provident a?
+                      </p>
+                </div>
+                <div class="para" id="step3">
+                    <h1>step3</h1>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat,
+                        asperiores magnam? In expedita laudantium magnam ratione alias
+                        minus nemo incidunt, dignissimos architecto placeat corporis
+                        molestiae labore vitae ullam laborum ut culpa eaque officiis,
+                        blanditiis sunt fugit ex? Neque quod mollitia delectus ipsa?
+                        Dolore veritatis, tenetur laudantium possimus unde debitis enim
+                        est illum, ea distinctio quod itaque quaerat ex sint eum optio in
+                        saepe labore sunt odit? Dolore, iusto! Ducimus sint laudantium
+                        consectetur. Velit facere culpa excepturi ad, quae distinctio iure
+                        incidunt. Odio alias laboriosam unde quo repudiandae corporis
+                        laborum quaerat asperiores minima quis in nam maxime recusandae
+                        iure, provident a?
+                      </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    
+    <script>
+      const tabs = document.querySelector(".tab");
+      const btns = document.querySelectorAll(".button");
+      const articles = document.querySelectorAll(".para");
+
+      tabs.addEventListener("click", function (e) {
+        const id = e.target.dataset.id;
+
+        if (id) {
+          // remove selected from other buttons
+          btns.forEach(function (btn) {
+            btn.classList.remove("live");
+          });
+          e.target.classList.add("live");
+          // hide other articles
+          articles.forEach(function (article) {
+            article.classList.remove("live");
+          });
+          const element = document.getElementById(id);
+          element.classList.add("live");
+        }
+      });
+
+   
+
+
+
+    </script>
+  </body>
+</html>
